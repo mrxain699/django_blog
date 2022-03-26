@@ -1,0 +1,62 @@
+{% extends "blog/base.html "%}
+{% load static %}
+{% block header %}
+   {% include "blog/dashboard_header.html" %}
+{% endblock header %}
+{% block content %}
+        <div class="container login-container mt-5 mb-5">
+            <div class="row mt-5 mb-5">
+                <div class="col-sm-12 col-md-12 col-lg-12 login d-flex justify-content-center mt-5 mb-5">
+                    <div class="reg-box post-box p-3">
+                        <div class="login-title w-100 text-center">
+                        {% if update %}
+                            <h1>Update Post</h1>
+                        {% else %}
+                            <h1>Add Post</h1>
+                        {% endif %}    
+                        </div>
+                        <form method="post" action="" enctype="multipart/form-data" novalidate class="d-flex justify-content-center flex-column">
+                            {% csrf_token %}
+                            <div class="form-group">
+                                {{form.title.label_tag}}
+                                {{form.title}}
+                                {{form.title.errors}}
+                            </div>
+                            <div class="form-group">
+                                {{form.desc.label_tag}}
+                                {{form.desc}}
+                                {{form.desc.errors}}
+                            </div>
+                            <div class="row">
+                                <div class="col col-sm-12 col-md-12 col-lg-6">
+                                    <div class="form-group">
+                                        {{form.catagory.label_tag}}
+                                        {{form.catagory}}
+                                        {{form.catagory.errors}}
+                                    </div>
+                                </div>
+                                <div class="col col-sm-12 col-md-12 col-lg-6">
+                                    <div class="form-group">
+                                        {{form.image.label_tag}}
+                                        {{form.image}}
+                                        {{form.image.errors}}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group text-center mt-4">
+                            {% if update %}
+                                <button type="submit" class="login-btn add-post">Update</button>
+                            {% else %}
+                                <button type="submit" class="login-btn add-post">Add</button>
+                            {% endif %}
+                            </div>
+                        </form>
+                    </div>
+                    <!--login-box-->
+                </div>
+                <!--login-->
+            </div>
+            <!--row-->
+        </div>
+        <!--login-container-->
+{% endblock content %}

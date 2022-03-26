@@ -1,0 +1,108 @@
+{% extends "blog/base.html "%}
+{% load static %}
+{% block header %}
+{% include "blog/public_header.html"%}
+{% endblock header %}
+{% block content %}
+    <div class="container post-container mt-2">
+        <div class="row">
+            <div class="col-sm-12 col-md-8 col-lg-8 post-items p-0 m-0 d-flex flex-column">
+            {% for post in posts %}
+                <div class="post-item w-100 d-flex flex-column p-3 ">
+                    <div class="author-detail d-flex flex-row justify-content-start w-100 mb-2">
+                        <div class="author-img">
+                            <img src="https://i.pinimg.com/236x/ca/d2/15/cad215593612d377cf68f03a97ad619d.jpg" alt="img" class="img-responsive img-fluid">
+                        </div>
+                        <div class="author-info d-flex flex-column justify-content-start">
+                            <a href="http://placehold.it">{{post.author}}</a>
+                            <p><span class="post-date">{{post.datetime}}</span></p>
+                        </div>
+                    </div>
+                    <!--author-detail-->
+                    <div class="post-title w-100 mb-2">
+                        <h3>{{post.title}}</h3>
+                    </div>
+                    <!--post-image-->
+                    <div class="post-img  mb-2">
+                        <img src="{{post.image.url}}" alt="img">
+                    </div> 
+                    <!--post-image-->
+                    <div class="post-desc w-100 mb-2">
+                        <p>{{post.desc | truncatewords:40}}</p>
+                    </div>
+                    <!--post-description-->
+                    <div class="post-link w-100">
+                        <a href="{% url "post_detail" post.id %}" class="post-link-btn ">Read More</a>
+                    </div>
+                    <!--post-link-->
+                </div>
+                <!--post-item-->
+                {% endfor %}
+
+
+                <div class="pagination d-flex justify-content-between mt-3 mb-3 p-2">
+                {% if posts.has_previous %}
+                    <a href="?page={{posts.previous_page_number}}" class="prev"><i class="fa fa-arrow-left" aria-hidden="true"></i></a> 
+                {% endif %}
+                {% if posts.has_next %}    
+                    <a href="?page={{posts.next_page_number}}" class="next"><i class="fa fa-arrow-right" aria-hidden="true"></i></a>
+                {% endif %}
+                </div>
+                
+                <!--pagination-->
+
+
+            </div>
+            <!--post-items-->
+
+            <!--Sidebar Start Here-->
+            <div class="col-sm-12 col-md-4 col-lg-4 recent-activity pl-2 pr-0 ">
+                <div class="search-activity w-100 mb-2 p-3">
+                    <form method="post" action="" novalidate class="d-flex flex-row">
+                        {% csrf_token %}
+                        <input type="text" name="search" class="form-control" placeholder="Search...">
+                        <button type="submit" class="btn"><i class="fa fa-search"></i></button>
+                    </form>
+                </div>
+                <!--search-acitivity-->
+                <div class="post-acitivity w-100 mb-2">
+                    <div class="acitivity-title w-100 p-2 mb-1">
+                        <h3>Recent Posts</h3>
+                    </div>
+                    <div class="post-activity-item w-100">
+                        <ul class="w-100">
+                        {% for post in recent_posts %}
+                            <li>
+                                <a href="{% url 'post_detail' post.id %}" class="p-3">
+                                    <div class="author-detail d-flex flex-row justify-content-start w-100 ">
+                                        <div class="author-img">
+                                            <img src="https://i.pinimg.com/236x/ca/d2/15/cad215593612d377cf68f03a97ad619d.jpg" alt="img" class="img-responsive img-fluid">
+                                        </div>
+                                        <div class="author-info d-flex flex-column justify-content-start">
+                                            <span>{{post.author}}</span>
+                                            <p>{{post.datetime}}</p>
+                                        </div>
+                                    </div>
+                                    <!-- author-detail -->
+                                    <div class="post-activity-title w-100 ml-1 mt-2">
+                                        <h4>{{post.title}}</h4>
+                                    </div>
+                                    <div class="post-activity-des w-100 ml-2">
+                                        <p>{{post.desc | truncatewords:10}}</p>
+                                    </div>
+                                </a>
+                            </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                    <!--post-acitivity-item-->
+                </div>
+                <!--post-acitivity-->
+            </div>
+            <!--recent-activity-->
+        </div>
+        <!--row-->
+    </div>
+    <!--post-container-->
+
+{% endblock content %}

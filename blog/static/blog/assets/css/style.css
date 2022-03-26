@@ -1,0 +1,403 @@
+/* App Css */
+
+
+/* html */
+
+html {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-size: 16px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+/* Body */
+
+body {
+    background-color: #3e3c58;
+    position: relative;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+
+/* formatting */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+a,
+p,
+span,
+label,
+button,
+i {
+    color: #aba9ca !important;
+    text-decoration: none !important;
+    
+}
+i {
+    cursor: pointer !important;
+}
+
+h1 {
+    font-size: 2rem;
+}
+
+button {
+    background-color: #25243d !important;
+    cursor: pointer;
+    outline: none !important;
+}
+
+
+table,
+tr,
+td,
+th {
+    border: 2px solid #3e3c58 !important;
+    color: #aba9ca;
+}
+
+thead {
+    background-color: #3e3c58;
+}
+
+
+.form-control {
+    background: none;
+    border: 2px solid #aba9ca;
+    padding-left: 5px;
+    color: #aba9ca !important;
+}
+
+.form-control:focus {
+    background: none;
+    box-shadow: none;
+    border: 2px solid #aba9ca;
+    color: #aba9ca !important;
+}
+
+.errorlist {
+    list-style-type: none;
+    margin: 0px;
+    padding: 0px;
+    color: #fff;
+}
+
+.header,
+.menu,
+.post-items,
+.search-activity,
+.post-acitivity,
+.footer-container,
+.login-box,
+.authors,
+.navigation {
+    background-color: #504e70;
+}
+
+.registration_container{
+    width:100%;
+    height:100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.reg-box,
+.post-box {
+    width: 35% !important;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.3);
+}
+
+.post-box{
+    width: 50% !important;
+}
+
+.social-items {
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+.social-items a {
+    display: inline-block;
+    margin-right: 35px;
+    border-radius: 100%;
+    text-align: center;
+    width: 40px;
+    height: 40px;
+}
+
+.social-items a>i {
+    font-size: 1.2rem;
+    line-height: 40px;
+}
+
+.social-items a:hover {
+    box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.5);
+}
+
+.header_navigation,
+.registration-btn{
+    display: flex !important;
+    justify-content: space-between !important;
+}
+
+.registration-btn{
+    justify-content: flex-start !important;
+
+}
+
+.nav_items ul,
+.post-activity-item ul,
+.registration-btn ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav_items ul li,
+.registration-btn ul li {
+    display: inline-block;
+}
+
+.nav_items ul li a,
+.registration-btn ul li a {
+    display: block;
+    padding: 8px 15px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    position: relative;
+}
+
+.nav_items ul li a::after,
+.registration-btn ul li a::after{
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background-color: #fff;
+    bottom: 0;
+    left: 50%;
+    transform: scale(0);
+    transform-origin: center;
+    transition:all .2s linear;
+} 
+
+.nav_items ul li a:hover::after,
+.registration-btn ul li a:hover::after{
+    width: 100%;
+    left:0;
+    transform: scale(1);
+    
+}
+
+
+.author-img {
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
+    overflow: hidden;
+}
+
+.author-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.author-info {
+    padding: 0 10px;
+}
+
+.post-time,
+.post-date {
+    font-size: .8rem;
+}
+
+.post-img {
+    width: 100%;
+    height: 500px;
+    overflow: hidden;
+}
+
+.post-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.post-desc p {
+    text-align: justify;
+    margin: 0 5px;
+}
+
+.post-link {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.post-link a,
+.login-btn,
+.add-author a {
+    padding: 8px 15px;
+    font-weight: bold;
+    background-color: #3e3c58;
+    position: relative;
+    display: block;
+    overflow: hidden;
+}
+
+.post-link a::after,
+.login-btn::after,
+.add-author a::after {
+    content: "";
+    width: 100%;
+    border: 1px solid #aba9ca;
+    display: block;
+    position: absolute;
+    left: -100%;
+    bottom: 0;
+    transition: all .3s linear;
+}
+
+.post-link a:hover::after,
+.login-btn:hover::after,
+.add-author a:hover::after {
+    border: 1px solid #aba9ca;
+    transition: all .3s linear;
+    left: 0;
+}
+
+.login-btn {
+    padding: 8px 55px !important;
+    border: 1px solid #3e3c58;
+    overflow: hidden;
+    display: inline-block;
+}
+
+.post-item,
+.post-activity-item ul li a {
+    display: block;
+    border-bottom: 2px solid #aba9ca;
+}
+
+.search-activity form input,
+.search-activity form button {
+    border: 2px solid #25243d;
+    border-radius: 0 !important;
+}
+
+.search-activity form input:focus {
+    border: 2px solid #25243d;
+}
+
+.search-activity form input::placeholder {
+    color: #aba9ca
+}
+
+.search-activity form button {
+    position: relative;
+    display: block;
+}
+
+.search-activity form button::before {
+    content: " ";
+    display: block;
+    left: -13px;
+    top: 10px;
+    position: absolute;
+    border-style: solid;
+    border-width: 8px 16px 8px 0;
+    border-color: transparent #25243d transparent transparent;
+}
+
+.post-activity-item ul li a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.pagination a {
+    display: inline-block;
+    margin-right: 10px;
+    background-color: #3e3c58;
+    padding: 5px 0px;
+    box-sizing: border-box;
+    width: 50px;
+    text-align: center;
+}
+
+.pagination a:last-child,
+.pagination a:first-child {
+    animation-name: arrow-right;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+}
+
+.pagination a:first-child {
+    animation-name: arrow-left;
+}
+
+@keyframes arrow-right {
+    0% {
+        padding: 5px 0px 5px 10px;
+    }
+    50% {
+        padding: 5px 0px 5px 0px;
+    }
+    100% {
+        padding: 5px 0px 5px 10px;
+    }
+}
+
+@keyframes arrow-left {
+    0% {
+        padding: 5px 10px 5px 0px;
+    }
+    50% {
+        padding: 5px 0px 5px 0px;
+    }
+    100% {
+        padding: 5px 10px 5px 0px;
+    }
+}
+
+.setting-box{
+    position: relative;
+    margin-right: 15px;
+}
+.setting-items{
+    position: absolute;
+    width:200px;
+    padding:10px;
+    display: flex;
+    flex-flow: column;
+    background-color:#25243d;
+    left:-100px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    top: 100%;
+    z-index: 1;
+    transform:scale(0);
+    transform-origin: top right;
+    transition: all .2s linear;
+
+}
+
+.setting-box:hover .setting-items{
+    transform: scale(1);
+    transform-origin: top left;
+}
+
+.setting-items a:hover{
+    text-decoration:underline !important;
+}

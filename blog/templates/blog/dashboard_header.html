@@ -1,0 +1,49 @@
+ <div class="container  header">
+        <div class="row">
+            <div class="col-sm-12  col-md-6 col-lg-6 logo-box p-0">
+                <div class="logo p-2 pl-3">
+                    <h1 class="m-0">DTECHO</h1>
+                </div>
+                <!--logo-->
+            </div>
+            <!--logo-box-->
+            <div class="col-sm-12 col-md-6 col-lg-6 user-detail">
+                <div class="user-welcome d-flex justify-content-end pt-3 pb-0 pr-10 pl-10">
+                    <p class="mr-3">Welcome, <em>{{request.user}}</em></p>
+                    <div class="setting-box">
+                        <i class="fas fa-cog"></i>
+                        <div class="setting-items">
+                            <a href="{% url 'change_password'%}">Change Password</a>
+                            <a href="{% url 'delete_account' request.user.id %}">Delete Account</a> 
+                        </div>
+                    </div>
+                    <a href="{% url "logout" %}" class="font-weight-bold">Logout</a>
+                </div>
+            </div>
+            <!--social-item-box-->
+        </div>
+        <!--row-->
+    </div>
+    <!--header-->
+
+    <div class="container navigation  mt-2  ">
+        <div class="row">
+            <div class="col-sm-12 col-md-12 col-lg-12 p-0 m-0">
+                <div class="nav_items">
+                    <ul>
+                        {% if request.user.is_superuser %} 
+                        <li><a href="{% url "index" %}">Home</a></li>
+                        <li><a href="{% url "dashboard" %}">Authors ({{total_authors.count}})</a></li>
+                        <li><a href="{% url "catagories" %}">Catagories ({{total_catagories.count}})</a></li>
+                        {% endif %}
+                        <li><a href="{% url "posts" %}">Posts ({{total_posts.count}})</a></li>
+
+                    </ul>
+                </div>
+                <!--nav-items-->
+            </div>
+            <!--nav-->
+        </div>
+        <!--row-->
+    </div>
+    <!--navbar-->

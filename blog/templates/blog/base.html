@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+{% load static%}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <!-- App Css -->
+    <link type="text/css" rel="stylesheet" href="{% static 'blog/assets/css/style.css' %}">
+    <link type="text/css" rel="stylesheet" href="{% static 'blog/assets/css/media.css' %}">
+    <!--FontAwesome Css-->
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
+</head>
+<body>
+
+{% block header %}{% endblock header %}
+
+{% block content %}{% endblock content %}
+
+{% block footer %}
+<div class="container footer-container text-center p-0 mt-2">
+    <p class="m-0 p-2">&copy; Copyright 2021 <strong>DtechoSolutions</strong></p>
+</div>
+<!--footer-->
+{% endblock footer %}
+
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<!--App Js -->
+<script type="text/javascript" src="{% static 'blog/assets/js/app.js' %}"></script>
+</body>
+</html>

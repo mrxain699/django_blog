@@ -1,0 +1,42 @@
+{% extends "blog/base.html "%}
+{% load static %}
+{% block content %}
+<section class="registration_container">
+    <div class="reg-box">
+        <div class="login-title w-100 text-center">
+            <h1>Sinup</h1>
+        </div>
+        <form method="post" action="" novalidate class="d-flex justify-content-center flex-column">
+            {% csrf_token %}
+            <div class="form-group">
+                {{form.username.label_tag}}
+                {{form.username}}
+                <span class="error" style="color:#ff0004;">{{form.username.errors}}</span>
+            </div>
+            <div class="form-group">
+                {{form.email.label_tag}}
+                {{form.email}}
+                <span class="error" style="color:#ff0004;">{{form.email.errors}}</span>
+            </div>
+            <div class="form-group">
+                {{form.password1.label_tag}}
+                {{form.password1}}
+                <span class="error" style="color:#ff0004;">{{form.password1.errors}}</span>
+            </div>
+            <div class="form-group">
+                {{form.password2.label_tag}}
+                {{form.password2}}
+                <span class="error" style="color:#ff0004;">{{form.password2.errors}}</span>
+            </div>
+            <div class="form-group text-center mt-4">
+                <button type="submit" class="login-btn register">Register</button>
+            </div>
+            <div class="form-group text-center">
+                <a href="{% url 'login' %}">Already a member</a>
+            </div>
+        </form>
+    </div>
+    <!--login-box-->
+</section>
+{% endblock content %}
+{% block footer %}{% endblock footer %}

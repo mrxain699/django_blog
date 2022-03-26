@@ -1,0 +1,68 @@
+{% extends "blog/base.html "%}
+{% load static %}
+{% block header %}
+   {% include "blog/dashboard_header.html" %}
+{% endblock header %}
+{% block content %}
+    <div class="container author-container mt-2">
+        <div class="row ">
+            <div class="col-sm-12 col-md-12 col-lg-12 authors p-0 m-0">
+                <div class="author-operation w-100 d-flex justify-content-between pt-2 pl-2 pr-2 pb-0">
+                    <div class="add-author">
+                        <a href="{% url 'add_author' %}">Add Author</a>
+                    </div>
+                    <div class="search-activity search-author mb-2">
+                        <form method="post" action="" novalidate class="d-flex flex-row">
+                            {% csrf_token %}
+                            <input type="text" name="search" class="form-control" placeholder="Search Author">
+                            <button type="submit" class="btn"><i class="fa fa-search"></i></button>
+                        </form>
+                    </div>
+                    <!--search-author-->
+                </div>
+                <!--author-operation-->
+
+                <div class="author-table w-100 p-2">
+                    <table class="table table-hover table-bordered table-striped text-center ">
+                        <thead>
+                            <tr>
+                                <th>Sr.</th>
+                                <th>Name</th>
+                                <th>Posts</th>
+                                <th colspan="2">Operations</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        {% for author in authors %}
+                            <tr>
+                                <td>{{author.id}}</td>
+                                <td>{{author.username}}</td>
+                                <td>{{author.total_posts}}</td>
+                                <td colspan="2">
+                                    <a href="{% url "update_author" author.id %}" class="btn btn-md btn-success">Update</a>
+                                    <a href="{% url "delete_author" author.id %}" class="btn btn-md btn-danger">Delete</a>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+                <!--author-table-->
+
+                <div class="pagination d-flex justify-content-center mt-3 mb-3 p-2">
+                {% if authors.has_previous %}
+                    <a href="?page={{authors.previous_page_number}}" class="prev"><i class="fa fa-arrow-left" aria-hidden="true"></i></a>
+                {% endif %}
+                {% if authors.has_next %}    
+                    <a href="?page={{authors.next_page_number}}" class="next "><i class="fa fa-arrow-right" aria-hidden="true"></i></a>
+                {% endif %}
+                </div>
+                <!--pagination-->
+
+            </div>
+            <!--authors-->
+        </div>
+        <!--row-->
+    </div>
+    <!--author-container-->
+{% endblock content%}

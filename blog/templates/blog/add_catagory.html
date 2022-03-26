@@ -1,0 +1,42 @@
+{% extends "blog/base.html "%}
+{% load static %}
+{% block header %}
+  {% include "blog/dashboard_header.html" %}
+{% endblock header %}
+{% block content %}
+        <div class="container login-container mt-5 mb-5">
+            <div class="row mt-5 mb-5">
+                <div class="col-sm-12 col-md-12 col-lg-12 mt-5 mb-5 login d-flex justify-content-center">
+                    <div class="reg-box p-3">
+                        <div class="login-title w-100 text-center">
+                        {% if update %}
+                            <h1>Update Catagory</h1>
+                        {% else %}
+                            <h1>Add Catagory</h1>
+                        {% endif %} 
+                        </div>
+                        <form method="post" action="" novalidate class="d-flex justify-content-center flex-column" id="catagory-form">
+                            {% csrf_token %}
+                            <div class="form-group">
+                                {{form.catagory.label_tag}}
+                                {{form.catagory}}
+                                {{form.catagory.errors}}
+                            </div>
+                            <div class="form-group text-center mt-4">
+                            {% if update %}
+                                <button type="submit" class="login-btn catagory">Update</button>
+                            {% else %}
+                                <button type="submit" class="login-btn catagory">Add</button>
+                            {% endif %}    
+                            </div>
+                        </form>
+                    </div>
+                    <!--login-box-->
+                </div>
+                <!--login-->
+            </div>
+            <!--row-->
+        </div>
+        <!--login-container-->
+{% endblock content %}
+
